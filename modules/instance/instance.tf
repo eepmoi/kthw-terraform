@@ -17,6 +17,7 @@ resource "google_compute_instance" "main" {
   metadata_startup_script = var.startup_script
 
   service_account {
+    email = var.service_account_email
     scopes = var.scopes
   }
 

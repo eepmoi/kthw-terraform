@@ -1,3 +1,4 @@
 project     = "<your_project_id>"
 region      = "<your_region>"
 source_ranges = ["IP_1","IP_2"]
+instance_service_account = "<service_account_email>"

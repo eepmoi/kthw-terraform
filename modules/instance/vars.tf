@@ -8,6 +8,9 @@ variable "startup_script" {}
 variable "tags" {
   type = list(string)
 }
+variable "service_account_email" {
+  default = ""
+}
 variable "scopes" {
   type = list(string)
 }

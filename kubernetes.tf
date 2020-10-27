@@ -13,6 +13,7 @@ module "master01" {
   subnet_name = "default"
   tags = ["k8smaster"]
   startup_script = ""
+  service_account_email = var.instance_service_account
   scopes = ["storage-rw"]
 }
 module "master02" {
@@ -24,6 +25,7 @@ module "master02" {
   subnet_name = "default"
   tags = ["k8smaster"]
   startup_script = ""
+  service_account_email = var.instance_service_account
   scopes = ["storage-rw"]
 }
 module "master03" {
@@ -35,6 +37,7 @@ module "master03" {
   subnet_name = "default"
   tags = ["k8smaster"]
   startup_script = ""
+  service_account_email = var.instance_service_account
   scopes = ["storage-rw"]
 }
 
@@ -47,6 +50,7 @@ module "etcd01" {
   subnet_name = "default"
   tags = ["etcd"]
   startup_script = ""
+  service_account_email = var.instance_service_account
   scopes = ["storage-rw"]
 }
 module "etcd02" {
@@ -58,6 +62,7 @@ module "etcd02" {
   subnet_name = "default"
   tags = ["etcd"]
   startup_script = ""
+  service_account_email = var.instance_service_account
   scopes = ["storage-rw"]
 }
 module "etcd03" {
@@ -69,6 +74,7 @@ module "etcd03" {
   subnet_name = "default"
   tags = ["etcd"]
   startup_script = ""
+  service_account_email = var.instance_service_account
   scopes = ["storage-rw"]
 }
 
@@ -81,6 +87,7 @@ module "node01" {
   subnet_name = "default"
   tags = ["k8sworker"]
   startup_script = ""
+  service_account_email = var.instance_service_account
   scopes = ["storage-rw"]
 }
 
@@ -93,6 +100,7 @@ module "node02" {
   subnet_name = "default"
   tags = ["k8sworker"]
   startup_script = ""
+  service_account_email = var.instance_service_account
   scopes = ["storage-rw"]
 }
 
@@ -105,6 +113,7 @@ module "masterlb" {
   tags = ["k8sloadbalancer"]
   subnet_name = "default"
   startup_script = "sudo yum install -y git wget && wget https://storage.googleapis.com/kubernetes-release/release/v1.15.3/bin/linux/amd64/kubectl && chmod +x kubectl && mv kubectl /usr/bin/"
+  service_account_email = var.instance_service_account
   scopes = ["compute-rw","storage-rw"]
 }
 
@@ -117,6 +126,7 @@ module "masterlb-dr" {
   tags = ["k8sloadbalancer"]
   subnet_name = "default"
   startup_script = "sudo yum install -y git wget && wget https://storage.googleapis.com/kubernetes-release/release/v1.15.3/bin/linux/amd64/kubectl && chmod +x kubectl && mv kubectl /usr/bin/"
+  service_account_email = var.instance_service_account
   scopes = ["compute-rw","storage-rw"]
 }
 
@@ -140,6 +150,7 @@ module "bastion" {
   subnet_name = "default"
   startup_script = "sudo yum install -y git wget && wget https://storage.googleapis.com/kubernetes-release/release/v1.15.3/bin/linux/amd64/kubectl && chmod +x kubectl && mv kubectl /usr/bin/"
   tags = ["bastion"]
+  service_account_email = var.instance_service_account
   scopes = ["compute-rw","storage-rw"]
 }
 
